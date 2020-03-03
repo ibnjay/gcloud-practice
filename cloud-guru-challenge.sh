@@ -9,5 +9,5 @@ gsutil mb gs://jay-startup
 gsutil cp gcloudboot.sh gs://jay-startup
 
 gcloud compute instances create example-instance \
-            --zone us-central1-a --machine-type=f1-micro --scopes=full \
-            --metadata startup-script-url=gs://bucket/startupscript.sh
+            --zone us-central1-a --machine-type=f1-micro  \
+            --metadata startup-script-url=gs://jay-startup/gcloudboot.sh,log_bucket_metadata_name=gs://jay-startup
