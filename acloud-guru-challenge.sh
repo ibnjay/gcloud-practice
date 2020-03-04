@@ -20,6 +20,12 @@ gcloud compute instances create example-instance \
 gcloud compute instances create example-instance2 \
             --zone us-central1-a --machine-type=f1-micro --scopes storage-rw,default  \
             --metadata startup-script-url=gs://jay-startup/gcloudboot.sh,log_bucket_metadata_name=gs://jay-startup
+            
+# Fixed with correct metadata property. Updated to take local file for starup.
+gcloud compute instances create example-instance3 \
+            --zone us-central1-a --machine-type=f1-micro --scopes storage-rw,default  \
+            --metadata lab-logs-bucket=gs://jay-startup \
+            --metadata-from-file=startup-script=gcloudboot.sh 
 
 
 # Delete instance
